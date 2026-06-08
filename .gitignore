@@ -1,0 +1,37 @@
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# Credentials
+src/hIMs/App/resources/credentials.json
+credentials.json
+
+# SQLite databases
+*.db
+
+# Tokens
+tokens/
+
+# Java compiled
+*.class
+
+# Sensitive files
+backup_config.dat
+pharmacy.properties
+pharmacy_name.txt
+
+# Data files
+*.csv
+data/
+backups/
+pos_backups/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.jar
