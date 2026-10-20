@@ -2,446 +2,566 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="SzkKYHZX65yyPkikjcFymA2rmw0oRTqnqSf9yzTYCWY" />
-<title>Gratis POS — Free Pos & Retail Point of Sale System</title>
-<meta name="description" content="Gratis POS is a free, open-source Point of Sale system for All retail shops. Inventory, sales, ledger, and financial dashboards — zero licensing cost.">
-<meta name="keywords" content="gratis pos, free pos, free point of sale, free pos exe, free business pos, free business software, free pharmacy software, free pos software, pharmacy pos system, pos dashboard, inventory ledger software">
-<meta property="og:title" content="Gratis POS — Free  Retail Point of Sale">
-<meta property="og:description" content="A free, open-source POS system for retail shops. No license fees, ever.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="SzkKYHZX65yyPkikjcFymA2rmw0oRTqnqSf9yzTYCWY">
+<title>Gratis POS | Know exactly what your shop earns</title>
+<meta name="description" content="Gratis POS is a point of sale system for pharmacies, supermarkets and retail shops. Track sales, stock, expiry and real profit. Works offline. Try it free.">
+<meta name="keywords" content="gratis pos, pos system tanzania, pharmacy pos, retail pos, inventory software, stock management, free pos trial">
+<meta property="og:title" content="Gratis POS | Mauzo bora. Biashara kubwa.">
+<meta property="og:description" content="Stop losing money to missing stock and guesswork. Track sales, stock, expiry and profit. Try it free.">
+<meta property="og:image" content="assets/banner.png">
+<link rel="icon" href="assets/logo.png">
 <style>
-  :root{
-    --bg-0:#081014;
-    --bg-1:#0c1a1f;
-    --bg-2:#0a2a29;
-    --panel:#0f2229;
-    --panel-2:#0c1b21;
-    --line: rgba(120,200,190,0.14);
-    --line-strong: rgba(120,200,190,0.28);
-    --teal:#1fe0b8;
-    --teal-dim:#0fae8e;
-    --blue:#4fa3ff;
-    --amber:#f5a623;
-    --text:#eaf6f3;
-    --text-dim:#8fa8a4;
-    --text-faint:#5c7470;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{ scroll-behavior:smooth; }
-  body{
-    font-family:'Inter', sans-serif;
-    color: var(--text);
-    background:
-      radial-gradient(1100px 600px at 15% -10%, rgba(31,224,184,0.16), transparent 60%),
-      radial-gradient(900px 500px at 100% 10%, rgba(79,163,255,0.10), transparent 55%),
-      linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 45%, var(--bg-2) 100%);
-    min-height:100vh;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; }
-  .mono{ font-family:'JetBrains Mono', monospace; }
-  a{ color:inherit; text-decoration:none; }
-  .wrap{ max-width:1240px; margin:0 auto; padding:0 28px; }
+:root{
+  --bg:#000; --text:#f4f4f4; --mut:#a8a8a8;
+  --mint:#19f0c3; --violet:#c5ff4d; --blue:#3ddc84; --pink:#ff5a8a; --amber:#ffc24d;
+  --glass:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+  --edge:rgba(255,255,255,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DejaVu Sans',Verdana,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'DejaVu Sans',Verdana,system-ui,sans-serif;line-height:1.1;letter-spacing:-.025em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+section{padding:92px 0;position:relative}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-  /* ---------- NAV ---------- */
-  nav.top{
-    position:sticky; top:0; z-index:50;
-    background: rgba(8,16,20,0.72);
-    backdrop-filter: blur(14px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.top .inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 28px; max-width:1240px; margin:0 auto;
-  }
-  .brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:1.05rem; }
-  .brand .mark{
-    width:30px; height:30px; border-radius:8px;
-    background:linear-gradient(135deg, var(--teal), var(--teal-dim));
-    display:flex; align-items:center; justify-content:center;
-    font-size:15px; color:#062420; font-weight:800;
-    box-shadow: 0 0 22px rgba(31,224,184,0.45);
-  }
-  .nav-links{ display:flex; gap:30px; list-style:none; }
-  .nav-links a{ color: var(--text-dim); font-size:0.92rem; font-weight:500; transition:color .2s; }
-  .nav-links a:hover{ color: var(--teal); }
-  .nav-cta{
-    font-family:'JetBrains Mono', monospace; font-size:0.8rem; font-weight:600;
-    background: var(--teal); color:#052420; padding:10px 18px; border-radius:7px;
-    box-shadow: 0 6px 20px -6px rgba(31,224,184,0.55);
-  }
-  @media (max-width:860px){ .nav-links{ display:none; } }
+/* glowing background orbs */
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orbs i{position:absolute;border-radius:50%;filter:blur(120px);opacity:.28;animation:drift 22s ease-in-out infinite alternate}
+.orbs i:nth-child(1){width:560px;height:560px;background:var(--blue);left:-180px;top:-140px;opacity:.3}
+.orbs i:nth-child(2){width:520px;height:520px;background:var(--mint);right:-160px;top:18%;opacity:.2;animation-delay:-6s}
+.orbs i:nth-child(3){width:480px;height:480px;background:var(--blue);left:25%;top:62%;opacity:.14;animation-delay:-11s}
+.orbs i:nth-child(4){width:380px;height:380px;background:var(--pink);right:8%;bottom:-120px;opacity:.16;animation-delay:-3s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.12)}}
 
-  /* ---------- HERO ---------- */
-  .hero{ padding:76px 0 30px; text-align:center; }
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace; font-size:0.78rem; letter-spacing:0.14em;
-    text-transform:uppercase; color:var(--teal); margin-bottom:22px;
-    display:flex; align-items:center; justify-content:center; gap:10px;
-  }
-  .eyebrow .pip{ width:6px; height:6px; border-radius:50%; background:var(--teal); box-shadow:0 0 10px var(--teal); }
-  h1.hero-title{
-    font-size:clamp(2.2rem, 5.2vw, 3.6rem);
-    font-weight:700; letter-spacing:-0.02em; line-height:1.08;
-    text-shadow: 0 0 40px rgba(31,224,184,0.35);
-  }
-  h1.hero-title .sub{
-    display:block; font-size:0.5em; color:var(--text-dim); font-weight:500;
-    margin-top:10px; text-shadow:none;
-  }
-  .hero p.lede{
-    max-width:52ch; margin:22px auto 0; color:var(--text-dim); font-size:1.05rem;
-  }
-  .hero-actions{
-    margin-top:32px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
-  }
-  .btn-primary{
-    font-family:'JetBrains Mono', monospace; font-weight:700; font-size:0.92rem;
-    background: linear-gradient(135deg, var(--teal), var(--teal-dim));
-    color:#04241f; padding:15px 28px; border-radius:9px;
-    box-shadow: 0 10px 30px -8px rgba(31,224,184,0.55);
-  }
-  .btn-ghost{
-    font-family:'JetBrains Mono', monospace; font-size:0.88rem;
-    border:1px solid var(--line-strong); color:var(--text); padding:14px 22px; border-radius:9px;
-  }
+/* glass */
+.glass{position:relative;background:var(--glass);border:1px solid var(--edge);border-radius:22px;backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);box-shadow:0 18px 50px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.2);transition:border-color .25s,box-shadow .25s,transform .25s}
+.glass.spot::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(360px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--g,var(--mint)) 28%,transparent),transparent 60%);opacity:0;transition:opacity .25s;pointer-events:none}
+.glass.spot:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--g,var(--mint)) 60%,transparent);box-shadow:0 22px 60px -18px color-mix(in srgb,var(--g,var(--mint)) 55%,transparent),inset 0 1px 0 rgba(255,255,255,.25)}
+.glass.spot:hover::before{opacity:1}
+.tile{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:24px;color:var(--g,var(--mint));background:color-mix(in srgb,var(--g,var(--mint)) 16%,transparent);border:1px solid color-mix(in srgb,var(--g,var(--mint)) 45%,transparent);box-shadow:0 0 26px color-mix(in srgb,var(--g,var(--mint)) 45%,transparent),inset 0 0 14px color-mix(in srgb,var(--g,var(--mint)) 20%,transparent)}
+.glow{background:linear-gradient(100deg,var(--mint),var(--blue) 55%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 22px rgba(25,240,195,.35))}
 
-  /* ---------- DEVICE SHOWCASE ---------- */
-  .showcase{
-    position:relative; margin:64px 0 40px; padding: 40px 0 20px;
-    display:flex; align-items:flex-end; justify-content:center; gap:26px; flex-wrap:wrap;
-  }
-  .device{ position:relative; }
-  .screen{
-    background: var(--panel-2);
-    border:1px solid var(--line-strong);
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.2);
-  }
-  /* laptop */
-  .laptop{ width:min(560px, 78vw); }
-  .laptop .screen{ height:330px; padding:14px; }
-  .laptop .base{
-    height:14px; width:108%; margin-left:-4%;
-    background: linear-gradient(180deg, #16262b, #0a1417);
-    border-radius: 0 0 10px 10px;
-    border:1px solid var(--line);
-    border-top:none;
-  }
-  /* tablet */
-  .tablet{ width:180px; align-self:flex-end; margin-bottom:6px; }
-  .tablet .screen{ height:250px; padding:10px; border-radius:16px; border-width:6px; border-color:#0c1a1e;}
-  /* phone */
-  .phone{ width:110px; align-self:flex-end; margin-bottom:2px; }
-  .phone .screen{ height:230px; padding:8px; border-radius:20px; border-width:6px; border-color:#0c1a1e;}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 1rem 'DejaVu Sans',Verdana,system-ui,sans-serif;border-radius:14px;padding:15px 26px;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.main{background:linear-gradient(120deg,var(--mint),var(--blue));color:#001a10;box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 10px 40px -6px rgba(25,240,195,.7)}
+.btn.main:hover{box-shadow:0 0 0 1px rgba(255,255,255,.35) inset,0 14px 56px -4px rgba(25,240,195,.95)}
+.btn.ghost{background:rgba(255,255,255,.07);border-color:var(--edge);color:var(--text);backdrop-filter:blur(12px)}
+.btn.ghost:hover{background:rgba(255,255,255,.13)}
+.btn.sm{padding:10px 18px;font-size:.92rem;border-radius:12px}
 
-  /* screen content: mini dashboard */
-  .ui-bar{ display:flex; gap:5px; margin-bottom:8px; }
-  .ui-dot{ width:6px; height:6px; border-radius:50%; background: rgba(255,255,255,0.15); }
-  .ui-row{ display:flex; gap:6px; height:100%; }
-  .ui-col{ flex:1; display:flex; flex-direction:column; gap:6px; }
-  .ui-block{
-    background: linear-gradient(135deg, rgba(31,224,184,0.14), rgba(79,163,255,0.08));
-    border:1px solid var(--line); border-radius:6px; flex:1;
-  }
-  .ui-block.tall{ flex:2; }
-  .ui-block.accent{ background: linear-gradient(135deg, rgba(31,224,184,0.35), rgba(31,224,184,0.1)); }
-  .ui-bars{ display:flex; align-items:flex-end; gap:4px; height:100%; padding:8px; }
-  .ui-bars span{ flex:1; background: linear-gradient(180deg, var(--teal), var(--teal-dim)); border-radius:2px 2px 0 0; opacity:0.85; }
+/* nav */
+nav{position:sticky;top:14px;z-index:30;margin:14px auto 0;max-width:1180px;padding:0 16px}
+nav .bar{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 18px;border-radius:18px}
+.brand{display:flex;align-items:center;gap:11px;font:800 1.15rem 'DejaVu Sans',Verdana,system-ui,sans-serif}
+.brand img{width:38px;height:38px;border-radius:50%;box-shadow:0 0 22px rgba(25,240,195,.55)}
+.links{display:flex;gap:26px;font-weight:600;font-size:.94rem;color:var(--mut)}
+.links a:hover{color:#fff;text-shadow:0 0 14px var(--mint)}
+@media(max-width:820px){.links{display:none}}
 
-  /* ---------- SECTION HEAD ---------- */
-  .section-head{ text-align:center; margin-bottom:44px; }
-  .section-head .tag{
-    font-family:'JetBrains Mono', monospace; font-size:0.76rem; color:var(--teal);
-    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px;
-  }
-  .section-head h2{ font-size:clamp(1.5rem,3vw,2.1rem); font-weight:600; }
+/* hero */
+.hero{padding:70px 0 40px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:99px;font-weight:700;font-size:.9rem;color:var(--mint);background:rgba(25,240,195,.08);border:1px solid rgba(25,240,195,.35);box-shadow:0 0 28px -4px rgba(25,240,195,.5)}
+.hero h1{font-size:clamp(2.5rem,6.4vw,5.1rem);font-weight:800;max-width:15ch;margin:24px auto 22px}
+.hero .lede{font-size:clamp(1.05rem,1.8vw,1.28rem);color:var(--mut);max-width:60ch;margin:0 auto 32px}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 24px;margin-top:28px;color:var(--mut);font-weight:600;font-size:.93rem}
+.chips span{display:inline-flex;align-items:center;gap:8px}
+.chips .ic{color:var(--mint);filter:drop-shadow(0 0 6px var(--mint))}
+.shot{margin:62px auto 0;max-width:1060px;position:relative}
+.frame{padding:10px;border-radius:24px}
+.frame .bar{display:flex;gap:7px;padding:4px 8px 10px}
+.frame .bar i{width:11px;height:11px;border-radius:50%}
+.frame .bar i:nth-child(1){background:#ff5f6d}.frame .bar i:nth-child(2){background:#ffc24d}.frame .bar i:nth-child(3){background:#19f0c3}
+.frame .bar b{margin-left:8px;font-size:.78rem;color:var(--mut);font-weight:600}
+.frame img{border-radius:14px;width:100%;height:auto}
+.shot::after{content:"";position:absolute;inset:8% 6% -6%;background:linear-gradient(90deg,var(--mint),var(--blue),var(--amber));filter:blur(80px);opacity:.22;z-index:-1;border-radius:40px}
+.zoomable{cursor:zoom-in}
+.float{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:16px;text-align:left;font-size:.85rem;color:var(--mut);animation:bob 6s ease-in-out infinite}
+.float strong{display:block;color:#fff;font:700 1.02rem 'DejaVu Sans',Verdana,system-ui,sans-serif}
+.float .tile{width:42px;height:42px;font-size:20px}
+.float.a{left:-30px;top:20%;--g:var(--mint)}
+.float.b{right:-30px;top:56%;--g:var(--pink);animation-delay:-3s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+@media(max-width:1150px){.float{display:none}}
 
-  section{ padding:70px 0; }
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{padding:26px;text-align:center}
+.stat b{display:block;font:800 2.2rem 'DejaVu Sans',Verdana,system-ui,sans-serif;color:var(--g);text-shadow:0 0 28px color-mix(in srgb,var(--g) 70%,transparent)}
+.stat span{color:var(--mut);font-size:.92rem}
+@media(max-width:780px){.stats{grid-template-columns:1fr 1fr}}
 
-  /* ---------- BENTO GRID ---------- */
-  .bento{
-    display:grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap:20px;
-  }
-  .card{
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    border:1px solid var(--line);
-    border-radius:14px;
-    padding:24px;
-  }
-  .card h3{ font-size:1.05rem; font-weight:600; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
-  .card h3 .ico{
-    width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center;
-    background: rgba(31,224,184,0.12); color:var(--teal); font-size:15px;
-  }
-  .card p{ color:var(--text-dim); font-size:0.92rem; line-height:1.55; }
+/* headings */
+.head{text-align:center;max-width:720px;margin:0 auto 52px}
+.head h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:16px;font-weight:800}
+.head p{color:var(--mut);font-size:1.12rem}
 
-  .c-4{ grid-column: span 4; }
-  .c-6{ grid-column: span 6; }
-  .c-8{ grid-column: span 8; }
-  .c-12{ grid-column: span 12; }
+/* grids */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{padding:30px}
+.card .tile{margin-bottom:20px}
+.card h3{font-size:1.25rem;margin-bottom:10px;font-weight:700}
+.card p{color:var(--mut);font-size:.98rem}
+.card .fix{margin-top:16px;padding-top:14px;border-top:1px solid var(--edge);display:flex;gap:10px;color:var(--text);font-weight:600;font-size:.93rem}
+.card .fix .ic{color:var(--mint);margin-top:4px;filter:drop-shadow(0 0 6px var(--mint))}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.g3{grid-template-columns:1fr}}
+.feat{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.feat .card{padding:24px 20px}
+.feat .card h3{font-size:1.02rem}
+.feat .card p{font-size:.88rem}
+@media(max-width:1100px){.feat{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.feat{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.feat{grid-template-columns:1fr}}
 
-  .bi-list{ list-style:none; display:flex; flex-direction:column; gap:11px; margin-top:4px; }
-  .bi-list li{ display:flex; align-items:center; gap:10px; font-size:0.92rem; color:var(--text); }
-  .bi-list li::before{ content:"→"; color:var(--teal); font-family:'JetBrains Mono', monospace; }
+/* tour */
+.tour{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
+.tabs{display:flex;flex-direction:column;gap:8px;padding:12px}
+.tab{display:flex;gap:12px;align-items:flex-start;text-align:left;background:transparent;border:1px solid transparent;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;color:var(--mut);transition:all .2s}
+.tab .ic{font-size:20px;margin-top:3px;color:var(--g)}
+.tab strong{display:block;font:700 1rem 'DejaVu Sans',Verdana,system-ui,sans-serif;color:var(--text)}
+.tab span{display:none;font-size:.88rem;margin-top:3px}
+.tab:hover{background:rgba(255,255,255,.06)}
+.tab[aria-selected=true]{background:color-mix(in srgb,var(--g) 14%,transparent);border-color:color-mix(in srgb,var(--g) 55%,transparent);box-shadow:0 0 30px -6px color-mix(in srgb,var(--g) 60%,transparent)}
+.tab[aria-selected=true] span{display:block}
+.stage img{transition:opacity .25s}
+.stage img.swap{opacity:0}
+.cap{display:flex;justify-content:space-between;gap:12px;color:var(--mut);font-size:.88rem;margin:12px 6px 0}
+@media(max-width:920px){.tour{grid-template-columns:1fr}.tabs{flex-direction:row;overflow-x:auto}.tab{white-space:nowrap}.tab[aria-selected=true] span{display:none}}
 
-  .release-row{ display:flex; gap:16px; }
-  .release-mini{
-    flex:1; border-radius:10px; padding:16px; border:1px solid var(--line);
-    background: rgba(255,255,255,0.02);
-  }
-  .release-mini.rolling{ border-left:3px solid var(--blue); }
-  .release-mini.stable{ border-left:3px solid var(--teal); }
-  .release-mini h4{ font-size:0.92rem; margin-bottom:6px; }
-  .release-mini p{ font-size:0.8rem; color:var(--text-faint); }
+/* showcase / split */
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:center}
+.split h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:16px;font-weight:800}
+.split p{color:var(--mut);font-size:1.08rem;margin-bottom:20px}
+.ticks{list-style:none;display:grid;gap:12px;margin-bottom:26px}
+.ticks li{display:flex;gap:12px;align-items:center;font-weight:600}
+.ticks .ic{color:var(--mint);font-size:22px;filter:drop-shadow(0 0 8px var(--mint))}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:30px}}
 
-  .chart-card .chart-preview{
-    height:190px; border-radius:10px; border:1px dashed var(--line-strong);
-    background: rgba(0,0,0,0.15);
-    display:flex; align-items:flex-end; gap:10px; padding:20px;
-  }
-  .chart-preview span{
-    flex:1; background: linear-gradient(180deg, var(--teal), rgba(31,224,184,0.15));
-    border-radius:4px 4px 0 0;
-  }
+/* industries */
+.ind{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.ind span{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid var(--edge);font-weight:600;font-size:.95rem;backdrop-filter:blur(10px)}
+.ind .ic{color:var(--g);filter:drop-shadow(0 0 6px var(--g))}
+.banner{padding:10px;border-radius:26px}
+.banner img{border-radius:18px;width:100%}
 
-  .stat-row{ display:flex; justify-content:space-between; align-items:baseline; margin-top:14px; }
-  .stat-row .num{ font-family:'JetBrains Mono', monospace; font-size:1.6rem; color:var(--teal); font-weight:700; }
-  .stat-row .lbl{ font-size:0.78rem; color:var(--text-faint); }
+/* channels */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chan{padding:34px}
+.chan .top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.chan h3{font-size:1.5rem}
+.chan small{display:block;color:var(--g);font-weight:700;font-size:.82rem}
+.chan ul{list-style:none;display:grid;gap:11px;margin-top:6px}
+.chan li{display:flex;gap:10px;color:var(--mut)}
+.chan li .ic{color:var(--g);margin-top:5px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
 
-  /* ---------- LOGIN CARD ---------- */
-  .login-card{
-    background: linear-gradient(180deg, rgba(31,224,184,0.08), rgba(15,34,41,0.6));
-    border:1px solid var(--line-strong);
-  }
-  .login-brand{ display:flex; align-items:center; gap:10px; margin-bottom:20px; }
-  .login-brand .cross{
-    width:34px; height:34px; border-radius:9px; background: var(--teal);
-    display:flex; align-items:center; justify-content:center; color:#052420; font-weight:800;
-    box-shadow:0 0 18px rgba(31,224,184,0.5);
-  }
-  .login-brand span{ font-weight:700; font-size:1rem; }
-  .field{ margin-bottom:14px; }
-  .field label{ display:block; font-size:0.72rem; color:var(--text-faint); margin-bottom:6px; font-family:'JetBrains Mono', monospace; }
-  .field input{
-    width:100%; padding:11px 12px; border-radius:7px; border:1px solid var(--line-strong);
-    background: rgba(0,0,0,0.25); color:var(--text); font-size:0.88rem;
-  }
-  .field input::placeholder{ color:var(--text-faint); }
-  .login-btns{ display:flex; gap:10px; margin-top:18px; }
-  .login-btns button{
-    flex:1; padding:11px; border:none; border-radius:7px; font-weight:700; font-size:0.85rem; cursor:pointer;
-    font-family:'JetBrains Mono', monospace;
-  }
-  .b-login{ background: var(--teal); color:#052420; }
-  .b-signup{ background: transparent; border:1px solid var(--line-strong) !important; color:var(--text); }
+/* calc + price */
+.price{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pc{padding:38px}
+.pc .amt{white-space:nowrap;font:800 clamp(2.3rem,4.6vw,3.4rem) 'DejaVu Sans',Verdana,system-ui,sans-serif;line-height:1}
+.pc .amt small{font:600 1.05rem 'DejaVu Sans',Verdana,system-ui,sans-serif;color:var(--mut)}
+.pc h3{font-size:1.3rem;margin-bottom:6px}
+.pc.hot{border-color:rgba(25,240,195,.55);box-shadow:0 0 70px -14px rgba(25,240,195,.55),inset 0 1px 0 rgba(255,255,255,.25)}
+.pc .ticks{margin:24px 0 28px}
+.pc label{display:block;font-weight:700;margin:20px 0 8px}
+.pc input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--edge);background:rgba(0,0,0,.6);color:#fff;font:600 1.1rem 'DejaVu Sans',Verdana,system-ui,sans-serif}
+.res{margin-top:24px;display:grid;gap:12px}
+.res div{display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--edge);color:var(--mut)}
+.res b{color:#fff}
+.res .win{font:800 1.9rem 'DejaVu Sans',Verdana,system-ui,sans-serif;color:var(--mint);text-shadow:0 0 24px rgba(25,240,195,.6)}
+@media(max-width:860px){.price{grid-template-columns:1fr}}
 
-  @media (max-width: 900px){
-    .c-4, .c-6, .c-8{ grid-column: span 12; }
-  }
+/* login */
+.login-img{padding:10px}
+.login-img img{border-radius:16px;width:100%}
 
-  /* ---------- FINAL CTA ---------- */
-  .final-cta{ text-align:center; padding:90px 0 100px; }
-  .final-cta h2{ font-size:clamp(1.8rem,4vw,2.6rem); margin-bottom:18px; }
-  .final-cta p{ color:var(--text-dim); margin-bottom:30px; }
+/* faq */
+.faq{max-width:800px;margin:0 auto;display:grid;gap:12px}
+details{padding:0;border-radius:18px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font:700 1.08rem 'DejaVu Sans',Verdana,system-ui,sans-serif}
+summary::-webkit-details-marker{display:none}
+summary .ic{color:var(--mint);transition:transform .25s}
+details[open] summary .ic{transform:rotate(45deg)}
+details p{padding:0 24px 22px;color:var(--mut)}
 
-  footer{
-    border-top:1px solid var(--line); padding:30px 0;
-    font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--text-faint);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-  }
-  footer a{ text-decoration:underline; text-underline-offset:3px; color:var(--text-dim); }
+/* final */
+.final{text-align:center;padding:64px 28px;border-radius:30px;border-color:rgba(25,240,195,.4);box-shadow:0 0 90px -20px rgba(25,240,195,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+.final img.lg{width:104px;height:104px;border-radius:50%;margin:0 auto 22px;box-shadow:0 0 50px rgba(25,240,195,.7)}
+.final h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800;margin-bottom:14px}
+.final p{color:var(--mut);max-width:54ch;margin:0 auto 30px;font-size:1.1rem}
+footer{padding:44px 0;color:var(--mut);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+footer a{text-decoration:underline;text-underline-offset:3px}
+footer a:hover{color:var(--mint)}
+
+dialog{border:0;background:transparent;max-width:96vw;max-height:94vh;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.94);backdrop-filter:blur(8px)}
+dialog img{max-width:96vw;max-height:86vh;border-radius:14px;margin:auto;box-shadow:0 0 80px rgba(25,240,195,.3)}
+dialog button{display:block;margin:0 0 10px auto;background:rgba(255,255,255,.14);color:#fff;border:1px solid var(--edge);border-radius:10px;padding:8px 16px;font:700 .9rem 'DejaVu Sans',Verdana,system-ui,sans-serif;cursor:pointer}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+h1,h2{text-wrap:balance}
+/* ---- classic flat dark theme matching the Gratis POS app ---- */
+:root{--bg:#08090b;--text:#e8e8e8;--mut:#9ca0a6;--mint:#2fd48a;--blue:#1fa86d;--violet:#d5d8dc;--pink:#ef5350;--amber:#f2b544;--panel:#14161a;--edge:#2a2d33}
+body{background:#08090b}
+.orbs{display:none}
+.glass{background:var(--panel);backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid var(--edge);border-radius:10px;box-shadow:none}
+.glass.spot::before{display:none}
+.glass.spot:hover{transform:none;border-color:var(--g,var(--mint));box-shadow:none}
+.tile{border-radius:8px;background:#0c0e10;border:1px solid var(--edge);box-shadow:none;color:var(--g,var(--mint))}
+.glow{background:none;-webkit-text-fill-color:currentColor;color:var(--mint);filter:none}
+.btn{border-radius:8px}
+.btn.main{background:#23885f;color:#03140d;border:1px solid #2fd48a;box-shadow:none}
+.btn.main:hover{background:#2fd48a;box-shadow:none}
+.btn.ghost{background:#1b1e22;backdrop-filter:none}
+.btn.ghost:hover{background:#24282d}
+.brand img{box-shadow:none}
+.links a:hover{text-shadow:none;color:var(--mint)}
+.pill{background:#10261c;border-color:#23885f;box-shadow:none;border-radius:8px}
+.chips .ic,.ticks .ic,.card .fix .ic,.ind .ic{filter:none}
+.shot::after{display:none}
+.float{animation:none}
+.hero h1{font-size:clamp(2.1rem,5.2vw,4rem);max-width:18ch;font-weight:800}
+.frame{border-radius:10px}.frame img{border-radius:6px}
+.banner{border-radius:10px}.banner img{border-radius:6px}
+.login-img img{border-radius:6px}
+.stat{display:flex;flex-direction:column-reverse;text-align:left;padding:18px 20px;gap:10px}
+.stat b{text-shadow:none;font-size:1.8rem}
+.head h2{color:var(--mint)}
+.tab[aria-selected=true]{background:#0f2a1f;box-shadow:none}
+.ind span{background:var(--panel);backdrop-filter:none;border-radius:8px}
+.pc.hot,.final{border-color:#23885f;box-shadow:none}
+.final{border-radius:10px}.final img.lg{box-shadow:none}
+.res .win{text-shadow:none}
+dialog img{box-shadow:none}
 </style>
 </head>
 <body>
 
-<nav class="top">
-  <div class="inner">
-    <div class="brand"><span class="mark">G</span>Gratis POS</div>
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#releases">Releases</a></li>
-      <li><a href="#login">Login</a></li>
-    </ul>
-    <a class="nav-cta" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest">Download</a>
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+<symbol id="box" viewBox="0 0 24 24"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.27 6.96 8.73 5.05 8.73-5.05"/><path d="M12 22.08V12"/></symbol>
+<symbol id="users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="chart" viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></symbol>
+<symbol id="book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></symbol>
+<symbol id="cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="undo" viewBox="0 0 24 24"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="down" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+<symbol id="trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+<symbol id="list" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
+<symbol id="store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></symbol>
+<symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+<symbol id="alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+<symbol id="wifi" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.86a10 10 0 0 1 14 0"/><path d="M8.5 16.43a5 5 0 0 1 7 0"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+<symbol id="coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="M15.5 9a3.5 2.5 0 0 0-3.5-1.5c-2 0-3.5 1-3.5 2.5s1.5 2 3.5 2 3.5.8 3.5 2.2-1.5 2.3-3.5 2.3A3.7 2.7 0 0 1 8.5 15"/></symbol>
+</svg>
+
+<div class="orbs"><i></i><i></i><i></i><i></i></div>
+
+<nav>
+  <div class="glass bar">
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="Gratis POS logo" width="38" height="38">Gratis POS</a>
+    <div class="links"><a href="#problem">Why Gratis</a><a href="#features">Features</a><a href="#tour">See it</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+    <a class="btn main sm" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest"><svg class="ic"><use href="#down"/></svg>Try it free</a>
   </div>
 </nav>
 
-<div class="wrap">
-  <header class="hero">
-    <div class="eyebrow"><span class="pip"></span>Free · Open Source · Zero Licensing Cost</div>
-    <h1 class="hero-title">Gratis POS<span class="sub">Pharmacy & Retail Management</span></h1>
-    <p class="lede">A free point of sale system built for pharmacies and small shops — sales, inventory, purchasing, ledgers, and dashboards, all in one download.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest">⬇ Download Gratis POS</a>
-      <a class="btn-ghost" href="https://github.com/pharmyohanaa-max/gratispos">View source</a>
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="pill"><svg class="ic"><use href="#zap"/></svg>Mauzo bora. Biashara kubwa.</span>
+    <h1>Know exactly what your shop <span class="glow">earns</span> every day.</h1>
+    <p class="lede">Gratis POS records every sale, counts every item in stock and works out your real profit. Stop losing money to missing stock, expired products and guesswork.</p>
+    <div class="cta">
+      <a class="btn main" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest"><svg class="ic"><use href="#down"/></svg>Download and try it free</a>
+      <a class="btn ghost" href="#tour"><svg class="ic"><use href="#chart"/></svg>See it in action</a>
     </div>
-
-    <!-- device showcase -->
-    <div class="showcase">
-      <div class="device tablet">
-        <div class="screen">
-          <div class="ui-bar"><div class="ui-dot"></div><div class="ui-dot"></div><div class="ui-dot"></div></div>
-          <div class="ui-col" style="height:88%">
-            <div class="ui-block accent" style="flex:1.4"></div>
-            <div class="ui-block"></div>
-            <div class="ui-block"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="device laptop">
-        <div class="screen">
-          <div class="ui-bar"><div class="ui-dot"></div><div class="ui-dot"></div><div class="ui-dot"></div></div>
-          <div class="ui-row" style="height:88%">
-            <div class="ui-col" style="flex:0.8">
-              <div class="ui-block"></div>
-              <div class="ui-block"></div>
-              <div class="ui-block"></div>
-            </div>
-            <div class="ui-col" style="flex:1.6">
-              <div class="ui-block tall">
-                <div class="ui-bars">
-                  <span style="height:40%"></span><span style="height:70%"></span><span style="height:55%"></span>
-                  <span style="height:85%"></span><span style="height:35%"></span><span style="height:60%"></span>
-                  <span style="height:90%"></span><span style="height:50%"></span>
-                </div>
-              </div>
-              <div class="ui-block"></div>
-            </div>
-          </div>
-        </div>
-        <div class="base"></div>
-      </div>
-
-      <div class="device phone">
-        <div class="screen">
-          <div class="ui-bar"><div class="ui-dot"></div></div>
-          <div class="ui-col" style="height:90%">
-            <div class="ui-block accent"></div>
-            <div class="ui-block"></div>
-            <div class="ui-block"></div>
-            <div class="ui-block"></div>
-          </div>
-        </div>
+    <div class="chips">
+      <span><svg class="ic"><use href="#wifi"/></svg>Works offline</span>
+      <span><svg class="ic"><use href="#cloud"/></svg>Cloud backup</span>
+      <span><svg class="ic"><use href="#users"/></svg>Staff accounts</span>
+      <span><svg class="ic"><use href="#mail"/></svg>Daily report to your inbox</span>
+    </div>
+    <div class="shot">
+      <div class="glass float a"><span class="tile"><svg class="ic"><use href="#trend"/></svg></span><div><strong>Profit, calculated</strong>from every single sale</div></div>
+      <div class="glass float b"><span class="tile"><svg class="ic"><use href="#alert"/></svg></span><div><strong>Low stock alerts</strong>reorder before you run out</div></div>
+      <div class="glass frame">
+        <div class="bar"><i></i><i></i><i></i><b>Gratis-Pos · Dashboard</b></div>
+        <img class="zoomable" src="assets/profile.png" alt="Gratis POS dashboard with product search and shortcuts for sales, receiving stock, ledger and reports" width="1364" height="704">
       </div>
     </div>
-  </header>
-</div>
+  </div>
+</header>
+
+<section style="padding:30px 0 10px">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="glass stat" style="--g:var(--mint)"><b>12</b><span>one-tap shortcuts on the home screen</span></div>
+      <div class="glass stat" style="--g:var(--blue)"><b>11</b><span>ready-made business reports</span></div>
+      <div class="glass stat" style="--g:var(--blue)"><b>24h</b><span>auto reports sent to your email each night</span></div>
+      <div class="glass stat" style="--g:var(--amber)"><b>100%</b><span>of stock movements recorded in the ledger</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="head reveal"><h2>Most shops lose money they never see</h2><p>A notebook and a calculator can't tell you where your profit went. Gratis POS can.</p></div>
+    <div class="g3 reveal">
+      <div class="glass card spot" style="--g:var(--pink)"><div class="tile"><svg class="ic"><use href="#alert"/></svg></div><h3>Stock that quietly disappears</h3><p>Items go missing and nobody knows when, or who handled them.</p><div class="fix"><svg class="ic"><use href="#check"/></svg>The ledger records every movement, with the date and the user.</div></div>
+      <div class="glass card spot" style="--g:var(--amber)"><div class="tile"><svg class="ic"><use href="#clock"/></svg></div><h3>Products that expire on the shelf</h3><p>Every expired box is money thrown away, and it is easy to miss.</p><div class="fix"><svg class="ic"><use href="#check"/></svg>Expiry dates per batch, plus near-expiry and expired reports.</div></div>
+      <div class="glass card spot" style="--g:var(--mint)"><div class="tile"><svg class="ic"><use href="#coin"/></svg></div><h3>Guessing your real profit</h3><p>Sales are not profit. Without costs, you only know half the story.</p><div class="fix"><svg class="ic"><use href="#check"/></svg>Gross and net profit worked out from your purchase prices.</div></div>
+    </div>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
-    <div class="section-head">
-      <div class="tag">Everything Included</div>
-      <h2>One system, every counter task</h2>
-    </div>
-
-    <div class="bento">
-      <div class="card c-4">
-        <h3><span class="ico">◆</span>Business Intelligence</h3>
-        <ul class="bi-list">
-          <li>Real-time stock management</li>
-          <li>Vendor tracking</li>
-          <li>Sales ledger</li>
-          <li>Financial dashboards</li>
-          <li>Reprint receipts</li>
-        </ul>
-      </div>
-
-      <div class="card c-4 chart-card">
-        <h3><span class="ico">▤</span>Top Performing Products</h3>
-        <div class="chart-preview">
-          <span style="height:35%"></span><span style="height:65%"></span><span style="height:50%"></span>
-          <span style="height:80%"></span><span style="height:45%"></span><span style="height:95%"></span>
-          <span style="height:60%"></span>
-        </div>
-        <div class="stat-row"><span class="num">+42%</span><span class="lbl">sales visibility</span></div>
-      </div>
-
-      <div class="card c-4">
-        <h3><span class="ico">⇄</span>Release Channels</h3>
-        <div class="release-row" style="flex-direction:column;">
-          <div class="release-mini rolling">
-            <h4 style="color:var(--blue)">Rolling Release</h4>
-            <p>Cloud sync, multi-device, frequent updates.</p>
-          </div>
-          <div class="release-mini stable">
-            <h4 style="color:var(--teal)">Stable Release</h4>
-            <p>Local sign-up, offline capable, ultra reliable.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card c-4">
-        <h3><span class="ico">☰</span>User Selection Panel</h3>
-        <p>Switch cashiers instantly with a simplified, secure login and selection screen built for busy counters.</p>
-      </div>
-
-      <div class="card c-4">
-        <h3><span class="ico">▥</span>Inventory Ledger</h3>
-        <p>Every product's stock movement — received, sold, adjusted — tracked automatically in one running ledger.</p>
-      </div>
-
-      <div class="card c-4">
-        <h3><span class="ico">$</span>Zero Licensing Cost</h3>
-        <p>No subscriptions, no per-seat fees, no hidden charges. Gratis POS stays free — forever.</p>
-      </div>
+    <div class="head reveal"><h2>Everything you need to run the counter</h2><p>One program for selling, stock, staff and accounts. No juggling notebooks and spreadsheets.</p></div>
+    <div class="feat reveal">
+      <div class="glass card spot" style="--g:var(--mint)"><div class="tile"><svg class="ic"><use href="#users"/></svg></div><h3>Staff accounts</h3><p>Give each person their own login and role.</p></div>
+      <div class="glass card spot" style="--g:var(--blue)"><div class="tile"><svg class="ic"><use href="#plus"/></svg></div><h3>Products and categories</h3><p>Add items with prices, minimum stock and expiry.</p></div>
+      <div class="glass card spot" style="--g:var(--violet)"><div class="tile"><svg class="ic"><use href="#box"/></svg></div><h3>Receive stock</h3><p>Record deliveries by vendor, batch and invoice.</p></div>
+      <div class="glass card spot" style="--g:var(--pink)"><div class="tile"><svg class="ic"><use href="#cart"/></svg></div><h3>Fast selling</h3><p>Search, add to cart, discount and print the receipt.</p></div>
+      <div class="glass card spot" style="--g:var(--amber)"><div class="tile"><svg class="ic"><use href="#trend"/></svg></div><h3>Daily sales and profit</h3><p>See today, this week, month or year at a glance.</p></div>
+      <div class="glass card spot" style="--g:var(--blue)"><div class="tile"><svg class="ic"><use href="#chart"/></svg></div><h3>Sales per employee</h3><p>Know who sold what, and when.</p></div>
+      <div class="glass card spot" style="--g:var(--mint)"><div class="tile"><svg class="ic"><use href="#undo"/></svg></div><h3>Returns</h3><p>Take products back and restock them correctly.</p></div>
+      <div class="glass card spot" style="--g:var(--violet)"><div class="tile"><svg class="ic"><use href="#list"/></svg></div><h3>Stock-taking</h3><p>Count your shelves and compare with the system.</p></div>
+      <div class="glass card spot" style="--g:var(--pink)"><div class="tile"><svg class="ic"><use href="#store"/></svg></div><h3>Reorder lists</h3><p>See what is running low and order it in time.</p></div>
+      <div class="glass card spot" style="--g:var(--amber)"><div class="tile"><svg class="ic"><use href="#phone"/></svg></div><h3>Reports to your phone</h3><p>Get the day's numbers by email while you are away.</p></div>
     </div>
   </div>
 </section>
 
-<section id="login">
+<section id="tour">
   <div class="wrap">
-    <div class="bento">
-      <div class="card c-8">
-        <h3><span class="ico">▦</span>POS Dashboard</h3>
-        <p style="margin-bottom:18px;">A live view of sales, inventory, and receiving — designed so a cashier or shop owner can act on it in seconds.</p>
-        <div class="chart-preview" style="height:150px;">
-          <span style="height:30%"></span><span style="height:55%"></span><span style="height:40%"></span>
-          <span style="height:75%"></span><span style="height:90%"></span><span style="height:50%"></span>
-          <span style="height:65%"></span><span style="height:85%"></span>
-        </div>
+    <div class="head reveal"><h2>See the real screens</h2><p>Pick a task and watch how it looks inside Gratis POS. Click any picture to enlarge it.</p></div>
+    <div class="tour reveal">
+      <div class="glass tabs" role="tablist" aria-label="Product tour"></div>
+      <div class="stage">
+        <div class="glass frame"><div class="bar"><i></i><i></i><i></i><b id="stageTitle"></b></div><img id="stageImg" class="zoomable" alt="" width="1364" height="704"></div>
+        <div class="cap"><span id="stageCap"></span><span>Click to enlarge</span></div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="card c-4 login-card">
-        <div class="login-brand"><span class="cross">✚</span><span>Gratis · POS Login</span></div>
-        <div class="field">
-          <label>EMAIL / USER ID</label>
-          <input type="email" placeholder="you@pharmacy.com">
-        </div>
-        <div class="field">
-          <label>PASSWORD</label>
-          <input type="password" placeholder="••••••••">
-        </div>
-        <div class="login-btns">
-          <button class="b-login">Login</button>
-          <button class="b-signup">Sign Up</button>
+<section>
+  <div class="wrap">
+    <div class="split reveal">
+      <div>
+        <h2>Your profit, <span class="glow">worked out for you</span></h2>
+        <p>Open the financial dashboard and see gross sales, discounts, cost of goods and net profit for any dates you choose. No spreadsheet, no calculator, no waiting for your accountant.</p>
+        <ul class="ticks"><li><svg class="ic"><use href="#check"/></svg>Today, week, month and year in one tap</li><li><svg class="ic"><use href="#check"/></svg>Top products and staff performance</li><li><svg class="ic"><use href="#check"/></svg>Income statement and key ratios</li></ul>
+        <a class="btn main" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest"><svg class="ic"><use href="#down"/></svg>Start tracking profit</a>
+      </div>
+      <div class="glass frame"><div class="bar"><i></i><i></i><i></i><b>Financial Analytics</b></div><img class="zoomable" src="assets/analytic.png" alt="Financial analytics dashboard showing gross sales, net profit and a debit and credit ledger" width="1206" height="694"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="glass banner"><img class="zoomable" src="assets/banner.png" alt="Pharmacists, a market trader and a supermarket cashier using Gratis POS" width="1024" height="572"></div>
+      <div>
+        <h2>One system for <span class="glow">every kind</span> of shop</h2>
+        <p>From a neighbourhood pharmacy to a busy supermarket, Gratis POS adapts to the way you sell. Kwa kila biashara.</p>
+        <div class="ind">
+          <span style="--g:var(--mint)"><svg class="ic"><use href="#plus"/></svg>Pharmacies</span>
+          <span style="--g:var(--blue)"><svg class="ic"><use href="#cart"/></svg>Supermarkets</span>
+          <span style="--g:var(--pink)"><svg class="ic"><use href="#store"/></svg>Clothing and fabrics</span>
+          <span style="--g:var(--violet)"><svg class="ic"><use href="#zap"/></svg>Electronics</span>
+          <span style="--g:var(--amber)"><svg class="ic"><use href="#box"/></svg>Market stalls</span>
+          <span style="--g:var(--mint)"><svg class="ic"><use href="#list"/></svg>General retail</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="wrap">
-  <div class="final-cta">
-    <h2>Free, and staying free.</h2>
-    <p>Download the latest release and get your shop running in minutes.</p>
-    <a class="btn-primary" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest">⬇ Download Gratis POS</a>
+<section>
+  <div class="wrap">
+    <div class="head reveal"><h2>Choose how you want to work</h2><p>Two releases, so you can pick speed of new features or maximum reliability.</p></div>
+    <div class="two reveal">
+      <div class="glass chan spot" style="--g:var(--blue)">
+        <div class="top"><span class="tile"><svg class="ic"><use href="#cloud"/></svg></span><div><small>Newest features first</small><h3>Rolling release</h3></div></div>
+        <ul><li><svg class="ic"><use href="#check"/></svg>Sign up with your Google account</li><li><svg class="ic"><use href="#check"/></svg>Works online and offline</li><li><svg class="ic"><use href="#check"/></svg>Cloud backup by default</li><li><svg class="ic"><use href="#check"/></svg>Gets updates sooner, so it is less settled</li></ul>
+      </div>
+      <div class="glass chan spot" style="--g:var(--mint)">
+        <div class="top"><span class="tile"><svg class="ic"><use href="#shield"/></svg></span><div><small>Built to be dependable</small><h3>Stable release</h3></div></div>
+        <ul><li><svg class="ic"><use href="#check"/></svg>Sign up locally on your computer</li><li><svg class="ic"><use href="#check"/></svg>Very stable and dependable</li><li><svg class="ic"><use href="#check"/></svg>No internet required</li><li><svg class="ic"><use href="#check"/></svg>Very fast and reliable</li></ul>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="wrap">
-  <footer>
-    <span>Gratis POS — maintained by PharmYohana</span>
+<section id="pricing">
+  <div class="wrap">
+    <div class="head reveal"><h2>Pays for itself quickly</h2><p>Try it first. If it saves you even a small amount of lost stock, it has already paid for itself.</p></div>
+    <div class="price reveal">
+      <div class="glass pc hot">
+        <h3>Gratis POS</h3>
+        <div class="amt">TSh 3,000 <small>/ month</small></div>
+        <ul class="ticks">
+          <li><svg class="ic"><use href="#check"/></svg>Try it free before you pay</li>
+          <li><svg class="ic"><use href="#check"/></svg>Sales, stock, ledger and profit</li>
+          <li><svg class="ic"><use href="#check"/></svg>Staff accounts with roles</li>
+          <li><svg class="ic"><use href="#check"/></svg>Daily reports by email</li>
+          <li><svg class="ic"><use href="#check"/></svg>Backup and updates</li>
+        </ul>
+        <a class="btn main" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest"><svg class="ic"><use href="#down"/></svg>Start your free trial</a>
+      </div>
+      <div class="glass pc">
+        <h3>What are you losing now?</h3>
+        <p style="color:var(--mut)">Estimate the value of stock that goes missing or expires each month.</p>
+        <label for="loss">Lost per month (TSh)</label>
+        <input id="loss" type="number" min="0" value="50000" inputmode="numeric">
+        <div class="res" aria-live="polite">
+          <div><span>Lost in a year</span><b id="r1">0</b></div>
+          <div><span>Gratis POS for a year</span><b>TSh 36,000</b></div>
+          <div><span>You could keep</span><span class="win" id="r3">0</span></div>
+        </div>
+        <p style="color:var(--mut);font-size:.82rem;margin-top:14px">An estimate based on the number you enter. Results depend on how you use the system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="split reveal">
+      <div>
+        <h2>Your staff, <span class="glow">your rules</span></h2>
+        <p>Every person signs in with their own account, and you decide what they can see. Every sale and stock change is logged with the name of the person who made it.</p>
+        <ul class="ticks"><li><svg class="ic"><use href="#lock"/></svg>Secure email login for each user</li><li><svg class="ic"><use href="#users"/></svg>Roles for cashiers and managers</li><li><svg class="ic"><use href="#cloud"/></svg>Backup your data from the sidebar</li></ul>
+      </div>
+      <div class="glass login-img"><img class="zoomable" src="assets/login.png" alt="Gratis POS secure email login screen" width="573" height="371"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="glass banner" style="max-width:420px;margin:0 auto"><img class="zoomable" src="assets/flyer.jpg" alt="Gratis POS flyer in Swahili listing features and the two release options" width="907" height="1178"></div>
+      <div>
+        <h2>Share it with another shop owner</h2>
+        <p>Know someone who still counts stock by hand? Send them our flyer. Imeandikwa kwa Kiswahili ili kila mfanyabiashara aelewe.</p>
+        <a class="btn ghost" href="assets/flyer.jpg" download><svg class="ic"><use href="#down"/></svg>Download the flyer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head reveal"><h2>Questions shop owners ask</h2></div>
+    <div class="faq reveal">
+      <details class="glass"><summary>Can I try it before paying?<svg class="ic"><use href="#plus"/></svg></summary><p>Yes. Download it and use it free during the trial. If it is not right for your shop, you have lost nothing.</p></details>
+      <details class="glass"><summary>Will it work when the internet is down?<svg class="ic"><use href="#plus"/></svg></summary><p>Yes. Both releases work offline. The Stable release needs no internet at all, and the Rolling release works online and offline.</p></details>
+      <details class="glass"><summary>Is it only for pharmacies?<svg class="ic"><use href="#plus"/></svg></summary><p>No. Pharmacies, supermarkets, clothing shops, electronics shops and market stalls can all use it.</p></details>
+      <details class="glass"><summary>Can my staff use it?<svg class="ic"><use href="#plus"/></svg></summary><p>Yes. Add users and roles from the Admin panel. Every sale and stock change is logged with the user who made it.</p></details>
+      <details class="glass"><summary>Is my data safe?<svg class="ic"><use href="#plus"/></svg></summary><p>You can back up your data any time from the sidebar, and the Rolling release backs up to the cloud by default.</p></details>
+      <details class="glass"><summary>What if something goes wrong or I need a feature?<svg class="ic"><use href="#plus"/></svg></summary><p>Open an issue on our GitHub page and we will look at it.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:30px">
+  <div class="wrap">
+    <div class="glass final reveal">
+      <img class="lg" src="assets/logo.png" alt="Gratis POS logo" width="104" height="104">
+      <h2>Your shop deserves to know its <span class="glow">real numbers</span>.</h2>
+      <p>Download Gratis POS today, add your products and make your first sale in minutes.</p>
+      <a class="btn main" href="https://github.com/pharmyohanaa-max/gratispos/releases/latest"><svg class="ic"><use href="#down"/></svg>Download and try it free</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Gratis POS, maintained by PharmYohana</span>
     <span><a href="https://github.com/pharmyohanaa-max/gratispos">Source</a> · <a href="https://github.com/pharmyohanaa-max/gratispos/issues">Report an issue</a> · <a href="https://github.com/pharmyohanaa-max/gratispos/releases">All releases</a></span>
-  </footer>
-</div>
+  </div>
+</footer>
 
+<dialog id="lb"><button type="button" id="lbx">Close</button><img id="lbi" alt=""></dialog>
+
+<script>
+const shots=[
+ {t:'Dashboard',d:'Search products and jump to any task.',img:'profile.png',ic:'chart',g:'var(--mint)',cap:'Home screen with product search and shortcuts'},
+ {t:'Add products',d:'Prices, minimum stock and expiry date.',img:'addproductr.png',ic:'plus',g:'var(--blue)',cap:'Product registry with category and vendor'},
+ {t:'Receive stock',d:'Queue a delivery and update stock in one save.',img:'rceic.png',ic:'box',g:'var(--violet)',cap:'Receive purchased products from a vendor'},
+ {t:'Ledger',d:'Every movement of every product.',img:'dger.png',ic:'book',g:'var(--pink)',cap:'Full stock history: received, sold, who and when'},
+ {t:'Sales report',d:'Daily sales and staff performance.',img:'reportp.png',ic:'cart',g:'var(--amber)',cap:'Sales for any period, exportable to CSV'},
+ {t:'Profit dashboard',d:'Gross sales to net profit with a Dr/Cr ledger.',img:'analytic.png',ic:'trend',g:'var(--mint)',cap:'Financial analytics for any date range'},
+ {t:'Business summary',d:'Revenue, margins and top products.',img:'summary.png',ic:'coin',g:'var(--blue)',cap:'Income statement, key ratios and quick stats'},
+ {t:'Email reports',d:'Send now or on a nightly schedule.',img:'repoot.png',ic:'mail',g:'var(--violet)',cap:'Auto-send reports as PDF to your inbox'}
+];
+const tabs=document.querySelector('.tabs'),img=document.getElementById('stageImg');
+function show(i){
+  const s=shots[i];
+  tabs.querySelectorAll('.tab').forEach((b,j)=>b.setAttribute('aria-selected',j===i));
+  img.classList.add('swap');
+  setTimeout(()=>{img.src='assets/'+s.img;img.alt=s.t+': '+s.cap;img.classList.remove('swap')},180);
+  document.getElementById('stageTitle').textContent='Gratis-Pos · '+s.t;
+  document.getElementById('stageCap').textContent=s.cap;
+}
+shots.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.className='tab';b.setAttribute('role','tab');b.style.setProperty('--g',s.g);
+  b.innerHTML='<svg class="ic"><use href="#'+s.ic+'"/></svg><div><strong>'+s.t+'</strong><span>'+s.d+'</span></div>';
+  b.onclick=()=>show(i);tabs.appendChild(b);
+});
+img.src='assets/'+shots[0].img;show(0);
+
+// lightbox
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+document.addEventListener('click',e=>{
+  const im=e.target.closest('img.zoomable');
+  if(!im)return;
+  lbi.src=im.src;lbi.alt=im.alt;lb.showModal();
+});
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+document.getElementById('lbx').onclick=()=>lb.close();
+
+// loss calculator
+const loss=document.getElementById('loss'),f=n=>'TSh '+Math.round(n).toLocaleString('en-US');
+function calc(){
+  const y=(+loss.value||0)*12,keep=Math.max(y-36000,0);
+  document.getElementById('r1').textContent=f(y);
+  document.getElementById('r3').textContent=f(keep);
+}
+loss.oninput=calc;calc();
+
+// glass spotlight follows the pointer
+document.querySelectorAll('.spot').forEach(c=>c.addEventListener('pointermove',e=>{
+  const r=c.getBoundingClientRect();
+  c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+  c.style.setProperty('--my',(e.clientY-r.top)+'px');
+}));
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
