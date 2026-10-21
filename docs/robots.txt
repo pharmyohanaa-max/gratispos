@@ -1,6 +1,6 @@
 # robots.txt for Gratis POS
-# Place this file at the root of the site: https://[YOUR-DOMAIN]/robots.txt
-# The matching AI-readable description is at: https://[YOUR-DOMAIN]/llms.txt
+# Place this file at the root of the site: https://gratispos.space/robots.txt
+# The matching AI-readable description is at: https://gratispos.space/llms.txt
 
 # ------------------------------------------------------------
 # Default rule: every crawler may read the public site
@@ -97,8 +97,3 @@ Allow: /
 
 User-agent: Amazonbot
 Allow: /
-
-# ------------------------------------------------------------
-# Sitemap and AI description file
-# ------------------------------------------------------------
-Sitemap: https://[YOUR-DOMAIN]/sitemap.xml
