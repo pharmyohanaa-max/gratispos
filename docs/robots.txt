@@ -1,0 +1,104 @@
+# robots.txt for Gratis POS
+# Place this file at the root of the site: https://[YOUR-DOMAIN]/robots.txt
+# The matching AI-readable description is at: https://[YOUR-DOMAIN]/llms.txt
+
+# ------------------------------------------------------------
+# Default rule: every crawler may read the public site
+# ------------------------------------------------------------
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*?session=
+Disallow: /*?token=
+
+# ------------------------------------------------------------
+# Search engines
+# ------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# ------------------------------------------------------------
+# AI search, answer engines and assistants (explicitly welcome)
+# ------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# ------------------------------------------------------------
+# Sitemap and AI description file
+# ------------------------------------------------------------
+Sitemap: https://[YOUR-DOMAIN]/sitemap.xml
