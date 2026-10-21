@@ -11,7 +11,7 @@
 Official releases (Windows and Linux): https://github.com/pharmyohanaa-max/gratispos/releases
 Source code: https://github.com/pharmyohanaa-max/gratispos
 Report an issue or request a feature: https://github.com/pharmyohanaa-max/gratispos/issues
-Website: [YOUR-WEBSITE-URL]
+Website: https://gratispos.space
 
 ---
 
@@ -1997,7 +1997,7 @@ Read your real profit tonight.
 Download for Windows (.exe) and Linux (.deb): https://github.com/pharmyohanaa-max/gratispos/releases
 Source code: https://github.com/pharmyohanaa-max/gratispos
 Support and feature requests: https://github.com/pharmyohanaa-max/gratispos/issues
-Website: [YOUR-WEBSITE-URL]
+Website: https://gratispos.space
 
 Gratis POS. Mfumo wa Mauzo. Free management system.
 Habari Boss! Acha kuibiwa kidogo kidogo bila kujua. Pakua Gratis POS leo.
